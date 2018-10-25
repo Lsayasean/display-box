@@ -2,8 +2,7 @@
   "name": "app",
   "version": "0.1.0",
   "private": true,
-  "main":"server/server.js",
-  "proxy": "http://localhost:3535",
+  "main": "server/server.js",
   "dependencies": {
     "axios": "^0.18.0",
     "body-parser": "^1.18.3",
