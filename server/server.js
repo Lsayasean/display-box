@@ -4,6 +4,7 @@ const bodyParser = require("body-parser");
 
 app.use(bodyParser.json());
 
+//Data stored on our server//////////////////////
 infoFromDB = [
   {
     name: "Tbone",
@@ -27,17 +28,15 @@ infoFromDB = [
     img: null
   }
 ];
+//////////////////////////////////////
 
 app.get("/get-info", (req, res) => {
   res.status(200).send(infoFromDB);
 });
 
 app.put("/change-color", (req, res) => {
-  console.log(req.params);
-  console.log(req.body);
-  console.log(req.query);
   infoFromDB.map((val, i, arr) => {
-    if (val.name === req.body.name) val.color = req.body.color;
+    if (val.name === req.params.name) val.color = req.params.color;
     return val;
   });
   res.status(200).send(infoFromDB);

@@ -13,8 +13,7 @@ class App extends Component {
 
   componentDidMount() {
     axios.get("/get-info").then(response => {
-      console.log(response);
-      this.setState({ friends: [...response.data] });
+      this.setState({ friends: [...response] });
     });
   }
 
@@ -23,10 +22,9 @@ class App extends Component {
   };
 
   render() {
-    console.log("this.state.friends", this.state.friends);
     return (
       <div className="App" style={{ backgroundColor: this.state.color }}>
-        {this.state.friends.map(val => {
+        {this.state.friends.map(val, i => {
           return (
             <DisplayBox friends={val} updateFromChild={this.updateFromChild} />
           );
