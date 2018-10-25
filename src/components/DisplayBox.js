@@ -9,10 +9,10 @@ export default class DisplayBox extends React.Component {
     };
   }
 
-  changeColor = () => {
+  changeColor = color => {
     axios
       .put("/change-color", {
-        color: this.state.input,
+        color: color,
         name: this.props.friends.name
       })
       .then(response => {
@@ -32,10 +32,10 @@ export default class DisplayBox extends React.Component {
           color: this.props.friends.color
         }}
       >
-        {this.props.friends.name}
+        {this.props.name}
         <input
           placeholder="what color?"
-          onChange={e => this.setState({ input: e.target.value })}
+          onChange={e => this.setState({ input: e })}
         />
         <button onClick={this.changeColor}>Change Color</button>
       </div>
